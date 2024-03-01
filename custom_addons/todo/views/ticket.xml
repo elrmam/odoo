@@ -1,0 +1,26 @@
+<odoo>
+    <record id="ticket_tree_view" model="ir.ui.view">
+        <field name="name">ticket.tree.view</field>
+        <field name="model">todo.ticket</field>
+        <field name="arch" type="xml">
+            <tree create="1" delete="1">
+                <field name="name"/>
+                <field name="number"/>
+                <field name="tag"/>
+                <field name="state"/>
+                <field name="file"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <menuitem id="menuitem_todo_allticket"
+              name="All_tickets"
+              parent="menu_root_ticket"
+              action="todo_ticket_action"/>
+    <menuitem id="menuitem_todo_mytickets"
+              name="My_tickets"
+              parent="menu_root_ticket"
+              action="todo_ticket_action"/>
+</odoo>
