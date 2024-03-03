@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 
+
 class Ticket(models.Model):
     _name = 'todo.ticket'
     _description = 'Todo'

@@ -14,13 +14,35 @@
         </field>
     </record>
 
+    <record id="view_ticket_form" model="ir.ui.view">
+            <field name="name">todo.ticket.form</field>
+            <field name="model">todo.ticket</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="number"/>
+                            <field name="tag"/>
+                            <field name="state"/>
+                            <field name="file"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record id="todo_ticket_action" model="ir.actions.act_window">
+        <field name="name">Todo ticket</field>
+        <field name="res_model">todo.ticket</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
 
     <menuitem id="menuitem_todo_allticket"
-              name="All_tickets"
-              parent="menu_root_ticket"
+              name="All Tickets"
+              parent="menu_root_tickets"
               action="todo_ticket_action"/>
-    <menuitem id="menuitem_todo_mytickets"
-              name="My_tickets"
-              parent="menu_root_ticket"
-              action="todo_ticket_action"/>
+
 </odoo>
