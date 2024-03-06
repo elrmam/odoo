@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="access_user_patient_record" model="ir.model.access">
+        <field name="name">User: Patient Record</field>
+        <field name="model_id" ref="model_hms_patient"/>
+        <field name="group_id" ref="group_user"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="access_user_department" model="ir.model.access">
+        <field name="name">User: Department</field>
+        <field name="model_id" ref="model_hms_department"/>
+        <field name="group_id" ref="group_user"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="access_user_doctor" model="ir.model.access">
+        <field name="name">User: Doctor</field>
+        <field name="model_id" ref="model_hms_doctor"/>
+        <field name="group_id" ref="group_user"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>

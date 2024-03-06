@@ -17,6 +17,7 @@
                 <field name="state"/>
                 <field name="department_id"/>
                 <field name="doctor_id"/>
+                <field name="logs_history"/>
             </tree>
         </field>
     </record>
@@ -41,12 +42,15 @@
                         <field name="department_id" domain="[('is_opened','=',True)]"/>
                         <field name="doctor_id" widget="many2many_tags" attrs="{'readonly': [('department_id','=',False)]}"/>
                     </group>
+                    <xpath expr="//group" position="after">
+                        <page string="Log History">
+                            <field name="logs_history"/>
+                        </page>
+                    </xpath>
                 </sheet>
             </form>
         </field>
     </record>
-
-
     <record id="hms_patient_action" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hms.patient</field>
@@ -58,4 +62,3 @@
           parent="menu_root_patients"
           action="hms_patient_action"/>
 </odoo>
-
